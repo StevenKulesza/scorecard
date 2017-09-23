@@ -28,7 +28,6 @@ class Header extends React.Component {
         <h1>{this.props.title}</h1>
       </div>
     );
-
   }
 }
 
@@ -37,6 +36,10 @@ Header.PropTypes = {
 };
 
 class Counter extends React.Component {
+  PropTypes = {
+    score: PropTypes.number.isRequired,
+  };
+
   render() {
     return(
       <div className="counter">
@@ -47,10 +50,6 @@ class Counter extends React.Component {
     );
   }
 }
-
-Counter.PropTypes = {
-  score: PropTypes.number.isRequired,
-};
 
 class Player extends React.Component {
   render() {
@@ -65,7 +64,6 @@ class Player extends React.Component {
           </div>
         </div>
       </div>
-
     );
   }
 }
@@ -85,7 +83,6 @@ class App extends React.Component {
             return <Player name={player.name} score={player.score} key={player.id} />
           })}
         </div>
-
       </div>
     );
   }
