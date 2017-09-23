@@ -36,22 +36,24 @@ class Header extends React.Component {
 }
 
 class Counter extends React.Component {
-  PropTypes = {}
+  PropTypes = {
+    initialScore: PropTypes.number.isRequired,
+  }
 
   constructor(props) {
     super(props);
-    this.state = {score: 0};
+    this.state = {score: this.props.initialScore};
     this.incrementScore = this.incrementScore.bind(this);
     this.decrementScore = this.decrementScore.bind(this);
   }
 
-  incrementScore(e) {
+  incrementScore() {
     this.setState({
       score: (this.state.score + 1),
     })
   }
 
-  decrementScore(e) {
+  decrementScore() {
     this.setState({
       score: (this.state.score - 1),
     })
@@ -81,7 +83,7 @@ class Player extends React.Component {
             {this.props.name}
           </div>
           <div className="player-score">
-            <Counter />
+            <Counter initialScore={this.props.score} />
           </div>
         </div>
       </div>
