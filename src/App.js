@@ -6,15 +6,18 @@ import './App.css';
 var PLAYERS = [
   {
     name: "Steve Kulesza",
-    score: 31
+    score: 31,
+    id: 1,
   },
   {
     name: "Hank Pratt",
-    score: 66
+    score: 66,
+    id: 2,
   },
   {
     name: "Ben Jordan",
-    score: 69
+    score: 69,
+    id: 3,
   }
 ];
 
@@ -79,7 +82,7 @@ class App extends React.Component {
 
         <div className="players">
           {this.props.players.map(function(player) {
-            return <Player name={player.name} score={player.score} />
+            return <Player name={player.name} score={player.score} key={player.id} />
           })}
         </div>
 
@@ -93,6 +96,7 @@ App.PropTypes = {
   players: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     score: PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired,
   })).isRequired,
 };
 
