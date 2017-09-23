@@ -17,6 +17,22 @@ Header.PropTypes = {
   title: PropTypes.string.isRequired,
 };
 
+class Counter extends React.Component {
+  render() {
+    return(
+      <div className="counter">
+        <button className="counter-action decrement"> - </button>
+        <div className="counter-score"> {this.props.score} </div>
+        <button className="counter-action increment"> + </button>
+      </div>
+    );
+  }
+}
+
+Counter.PropTypes = {
+  score: PropTypes.number.isRequired,
+};
+
 class Player extends React.Component {
   render() {
     return (
@@ -26,11 +42,7 @@ class Player extends React.Component {
             {this.props.name}
           </div>
           <div className="player-score">
-            <div className="counter">
-              <button className="counter-action decrement"> - </button>
-              <div className="counter-score"> {this.props.score} </div>
-              <button className="counter-action increment"> + </button>
-            </div>
+            <Counter score={this.props.score} />
           </div>
         </div>
       </div>
@@ -41,7 +53,6 @@ class Player extends React.Component {
 
 Player.PropTypes = {
   name: PropTypes.string.isRequired,
-  score: PropTypes.number.isRequired,
 };
 
 class Application extends React.Component {
