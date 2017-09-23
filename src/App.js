@@ -55,7 +55,7 @@ Player.PropTypes = {
   name: PropTypes.string.isRequired,
 };
 
-class Application extends React.Component {
+class App extends React.Component {
   render() {
     return (
       <div className="scoreboard">
@@ -69,12 +69,12 @@ class Application extends React.Component {
   }
 }
 
-Application.defaultProps = {
+App.defaultProps = {
   title: "Score Board"
 };
 
-Application.PropTypes = {
+App.PropTypes = {
   title: PropTypes.string,
 };
 
-export default Application;
+export default App;
