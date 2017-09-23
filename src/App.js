@@ -17,41 +17,41 @@ Header.PropTypes = {
   title: PropTypes.string.isRequired,
 };
 
+class Player extends React.Component {
+  render() {
+    return (
+      <div className="players">
+        <div className="player">
+          <div className="player-name">
+            {this.props.name}
+          </div>
+          <div className="player-score">
+            <div className="counter">
+              <button className="counter-action decrement"> - </button>
+              <div className="counter-score"> {this.props.score} </div>
+              <button className="counter-action increment"> + </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    );
+  }
+}
+
+Player.PropTypes = {
+  name: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
+};
+
 class Application extends React.Component {
   render() {
     return (
       <div className="scoreboard">
         <Header title={this.props.title} />
 
-        <div className="players">
-          <div className="player">
-            <div className="player-name">
-              Test User
-            </div>
-            <div className="player-score">
-              <div className="counter">
-                <button className="counter-action decrement"> - </button>
-                <div className="counter-score"> 21 </div>
-                <button className="counter-action increment"> + </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="players">
-          <div className="player">
-            <div className="player-name">
-              Test User 2
-            </div>
-            <div className="player-score">
-              <div className="counter">
-                <button className="counter-action decrement"> - </button>
-                <div className="counter-score"> 54 </div>
-                <button className="counter-action increment"> + </button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Player name="Steve" score="31" />
+        <Player name="Jim" score="51" />
 
       </div>
     );
