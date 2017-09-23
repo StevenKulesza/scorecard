@@ -2,6 +2,22 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './App.css';
 
+
+var PLAYERS = [
+  {
+    name: "Steve Kulesza",
+    score: 31
+  },
+  {
+    name: "Hank Pratt",
+    score: 66
+  },
+  {
+    name: "Ben Jordan",
+    score: 69
+  }
+];
+
 class Header extends React.Component {
   render() {
     return (
@@ -61,20 +77,30 @@ class App extends React.Component {
       <div className="scoreboard">
         <Header title={this.props.title} />
 
-        <Player name="Steven" score="31" />
-        <Player name="Jim" score="51" />
+        <div className="players">
+          {this.props.players.map(function(player) {
+            return <Player name={player.name} score={player.score} />
+          })}
+        </div>
 
       </div>
     );
   }
 }
 
-App.defaultProps = {
-  title: "Score Board"
-};
-
 App.PropTypes = {
   title: PropTypes.string,
+  players: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    score: PropTypes.number.isRequired,
+  })).isRequired,
 };
+
+App.defaultProps = {
+  title: "Score Board",
+  players: PLAYERS,
+};
+
+
 
 export default App;
