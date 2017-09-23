@@ -36,9 +36,7 @@ class Header extends React.Component {
 }
 
 class Counter extends React.Component {
-  PropTypes = {
-    score: PropTypes.number.isRequired,
-  };
+  PropTypes = {};
 
   constructor(props) {
     super(props);
@@ -69,7 +67,7 @@ class Player extends React.Component {
             {this.props.name}
           </div>
           <div className="player-score">
-            <Counter score={this.props.score} />
+            <Counter />
           </div>
         </div>
       </div>
