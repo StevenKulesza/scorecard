@@ -2,20 +2,26 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './App.css';
 
-Application.PropTypes = {
-  title: PropTypes.string
-};
+class Header extends React.Component {
+  render() {
+    return (
+      <div className="header">
+        <h1>{this.props.title}</h1>
+      </div>
+    );
 
-Application.defaultProps = {
-  title: "Score Board"
+  }
+}
+
+Header.PropTypes = {
+  title: PropTypes.string.isRequired,
 };
 
 class Application extends React.Component {
-  render() { return (
+  render() {
+    return (
       <div className="scoreboard">
-        <div className="header">
-          <h1>{this.props.title}</h1>
-        </div>
+        <Header title={this.props.title} />
 
         <div className="players">
           <div className="player">
@@ -51,5 +57,13 @@ class Application extends React.Component {
     );
   }
 }
+
+Application.defaultProps = {
+  title: "Score Board"
+};
+
+Application.PropTypes = {
+  title: PropTypes.string,
+};
 
 export default Application;
