@@ -23,6 +23,22 @@ class App extends Component {
             </div>
           </div>
         </div>
+
+        <div className="players">
+          <div className="player">
+            <div className="player-name">
+              Test User 2
+            </div>
+            <div className="player-score">
+              <div className="counter">
+                <button className="counter-action decrement"> - </button>
+                <div className="counter-score"> 54 </div>
+                <button className="counter-action increment"> + </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
       </div>
     );
   }
