@@ -22,6 +22,10 @@ var PLAYERS = [
 ];
 
 class Header extends React.Component {
+  PropTypes = {
+    title: PropTypes.string.isRequired,
+  };
+
   render() {
     return (
       <div className="header">
@@ -30,10 +34,6 @@ class Header extends React.Component {
     );
   }
 }
-
-Header.PropTypes = {
-  title: PropTypes.string.isRequired,
-};
 
 class Counter extends React.Component {
   PropTypes = {
@@ -52,6 +52,10 @@ class Counter extends React.Component {
 }
 
 class Player extends React.Component {
+  PropTypes = {
+    name: PropTypes.string.isRequired,
+  };
+
   render() {
     return (
       <div className="players">
@@ -68,11 +72,16 @@ class Player extends React.Component {
   }
 }
 
-Player.PropTypes = {
-  name: PropTypes.string.isRequired,
-};
-
 class App extends React.Component {
+  PropTypes = {
+    title: PropTypes.string,
+    players: PropTypes.arrayOf(PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      score: PropTypes.number.isRequired,
+      id: PropTypes.number.isRequired,
+    })).isRequired,
+  };
+
   render() {
     return (
       <div className="scoreboard">
@@ -87,15 +96,6 @@ class App extends React.Component {
     );
   }
 }
-
-App.PropTypes = {
-  title: PropTypes.string,
-  players: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    score: PropTypes.number.isRequired,
-    id: PropTypes.number.isRequired,
-  })).isRequired,
-};
 
 App.defaultProps = {
   title: "Score Board",
