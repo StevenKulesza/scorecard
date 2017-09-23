@@ -1,1 +1,4 @@
-Simple scorecard built with React
+Simple React scoreboard
+
+yarn start
+yarn build
