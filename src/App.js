@@ -61,7 +61,7 @@ class Application extends React.Component {
       <div className="scoreboard">
         <Header title={this.props.title} />
 
-        <Player name="Steve" score="31" />
+        <Player name="Steven" score="31" />
         <Player name="Jim" score="51" />
 
       </div>
